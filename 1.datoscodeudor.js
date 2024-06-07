@@ -10,6 +10,21 @@ const datosFormulario = {
   emailCod: '',
   celularCod: '',
   ocupacionCod: '',
+  primerNombreCodReplegal:'',
+  segundoNombreCodRepLegal:'',
+  primerApellidoCodRepLegal:'',
+  segundoApellidoCodRepLegal:'',
+  documentoCodRepLegal:'',
+  numDocumentoCodRepLegal:'',
+  razonsocial:'',
+  nit:'',
+  direccion:'',
+  ciudEmpresa:'',
+  telEmpresa:'',
+  emailCodJuridico:'',
+  ingresos:'',
+  egresos:''
+
 }
 // abrir modal de verificacion y carga de datos
 document.addEventListener('DOMContentLoaded', function ()
@@ -68,7 +83,22 @@ document.addEventListener('DOMContentLoaded', function ()
   
       datosFormulario.celularCod = data.get('celularCod')
       datosFormulario.ocupacionCod = data.get('ocupacionCod')
-    
+
+      datosFormulario.primerNombreCodReplegal=data.get('primerNombreCodReplegal')
+      datosFormulario.segundoNombreCodRepLegal=data.get('segundoNombreCodRepLegal')
+      datosFormulario.primerApellidoCodRepLegal=data.get('primerApellidoCodRepLegall')
+      datosFormulario.segundoApellidoCodRepLegal=data.get('segundoApellidoCodRepLegal')
+      datosFormulario.documentoCodRepLegal=data.get('documentoCodRepLegal')
+      datosFormulario.numDocumentoCodRepLegal=data.get('numDocumentoCodRepLegal')
+      datosFormulario.razonsocial=data.get(' razonsocial')
+      datosFormulario.nit=data.get('nit')
+      datosFormulario.direccion=data.get('direccion')
+      datosFormulario.ciudEmpresa=data.get('ciudEmpresa')
+      datosFormulario.telEmpresa=data.get('telEmpresa')
+      datosFormulario.emailCodJuridico=data.get('emailCodJuridico')
+      datosFormulario.ingresos=data.get('ingresos')
+      datosFormulario.egresos=data.get('egresos')
+
       console.log(datosFormulario);
 
 
@@ -129,4 +159,21 @@ document.getElementById('confirmModalBtn').addEventListener('click', function ()
     updateProgressBar()
   
 })
+document.getElementById('despedida').addEventListener('click', function () {
+
+  const modal = document.getElementById('modaldespedida');
+  // Mostrar paso 2 del formulario
+    document.getElementById('personalDataForm').style.display = 'none'
+
+    // Mostrar paso 2 del formulario
+    document.getElementById('paso2').style.display = 'block'
+    //mostrar modal despedida
+    modal.style.display = 'block';
+
+    // Cerrar todas las ventanas modales
+    closeModal()
+  
+})
+
+
   

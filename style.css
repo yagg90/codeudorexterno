@@ -19,6 +19,12 @@
   cursor: pointer;
 }
 /* CSS */
+#message,#message1,#message2,#message3,#message4,#message5,#message6,#message7,#message8{
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
 .error-message {
   color: red;
   font-size: 12px;
@@ -570,6 +576,7 @@ footer img {
 
 .input-wrapper-check {
   display: flex;
+  color: #0A4989;
   /* Para que los elementos internos se ajusten automáticamente */
   flex-direction: column;
   /* width:50%; Ancho máximo del contenedor */
@@ -682,7 +689,7 @@ footer img {
 
 
 /* Estilos para la ventana modal de inicio */
-#modalInicio, #codigoModal ,#myModal{
+#modalInicio, #codigoModal ,#myModal,#modaldespedida{
   display: none;
   /* Por defecto, oculta la ventana modal */
   position: fixed;

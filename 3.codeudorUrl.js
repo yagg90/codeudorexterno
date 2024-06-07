@@ -62,23 +62,23 @@ fetch(url, {
     let imagen;
     switch (valorConcatenado) {
         case 'C_NA':
-            imagen = 'juridico.jpeg';
+            imagen = 'img/juridico.jpeg';
             ocultarCamposNombresApellidos(); // Ocultar nombres y apellidos
             cargarDocumentosjuridico();
             break;
         case 'P_EMP':
-            imagen = 'empleado.jpeg';
+            imagen = 'img/empleado.jpeg';
             mostrarCamposNombresApellidos(); // Mostrar nombres y apellidos
             cargarDocumentosEmpleado();
             break;
         case 'P_IND':
-                imagen = 'independiente.jpeg';
+                imagen = 'img/independiente.jpeg';
                 mostrarCamposNombresApellidos(); // Mostrar nombres y apellidos
                 cargarDocumentosIdependiente();
                 break;
             
         default:
-            imagen = 'rentista capital.jpeg';
+            imagen = 'img/rentista capital.jpeg';
             mostrarCamposNombresApellidos(); // Mostrar nombres y apellidos
             cargarDocumentosRentistacapital();
     }
