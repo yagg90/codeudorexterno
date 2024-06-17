@@ -9,7 +9,7 @@ function getParameterByName(name) {
     }
 const PKCodeudor = getParameterByName('PKCodeudor');
 console.log(PKCodeudor)
-const url = `https://check2.zuarriendo.com/ApiWebR/APIRadicacionNG/GuardarDatosCodeudor?PKCodeudor=${PKCodeudor}`;
+const url = `https://check2.zuarriendo.com/ApiWebR/APIRadicacionNG/ObtenerDatosCodeudor?PKCodeudor=${PKCodeudor}`;
 //const url = 'http://pruebas.centraldearrendamientos.com/WebR17_JTDesarrollo.NetEnvironment/APIRadicacionNG/ObtenerDatosCodeudor?PKCodeudor=3650';
 const headers = {
   'Accept': 'application/json',
