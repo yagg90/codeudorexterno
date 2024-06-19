@@ -11,17 +11,19 @@ function getParameterByName(name) {
 document.addEventListener("DOMContentLoaded", function() {
     // URL de la API para enviar datos
     const postUrl = 'http://pruebas.centraldearrendamientos.com/WebR17_JTDesarrollo.NetEnvironment/APIRadicacionNG/GuardarDatosCodeudor'; // Reemplaza con tu URL real
-    const PKCodeudor = getParameterByName('PKCodeudor');
-        console.log(PKCodeudor)
+    const Codigocodeudor = getParameterByName('PKCodeudor');
+        console.log(Codigocodeudor)
     const url = `http://pruebas.centraldearrendamientos.com/WebR17_JTDesarrollo.NetEnvironment/APIRadicacionNG/ObtenerDatosCodeudor?PKCodeudor=${PKCodeudor}`;
     // Enviar datos mediante POST al hacer clic en el botón "Confirmar"
     document.getElementById('confirmModalBtn').addEventListener('click', function() {
         // Obtener el valor del nombre del cliente
+        const nombreClienteRepLegal = document.getElementById('primerNombreCodReplegal').value;
+        const  segundonombreClienteRepLegal= document.getElementById('segundoNombreCodRepLegal').value;
         const nombreCliente = document.getElementById('primerNombreCod').value;
-        console.log(nombreCliente);
-        // Obtener el valor seleccionado del select
         const  segundonombreCliente= document.getElementById('segundoNombreCod').value;
         console.log(nombreCliente);
+        console.log(segundonombreCliente);
+        
         // Verificar que ambos campos estén llenos
         if (nombreCliente === "" || segundonombreCliente === "") {
             alert("Por favor, completa todos los campos.");
@@ -32,9 +34,11 @@ document.addEventListener("DOMContentLoaded", function() {
         const data = {
             canal:'directo',
             Operacion:'UPD',
-            PKCodeudor:PKCodeudor,
-            PrimerNombreCodeudor: nombreCliente,
-            SegundoNombreCodeudor: segundonombreCliente
+            PKCodeudor:Codigocodeudor,
+            PrimerNombreRepLegal: nombreClienteRepLegal,
+            SegundoNombreRepLegal: segundonombreClienteRepLegal,
+            PrimerNombreCodeudor:nombreCliente,
+            SegundoNombreCodeudor:segundonombreCliente
         };
 
         // Realizar la solicitud POST

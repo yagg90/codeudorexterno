@@ -8,9 +8,9 @@ function getParameterByName(name) {
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
 const PKCodeudor = getParameterByName('PKCodeudor');
-console.log(PKCodeudor)
-const url = `https://check2.zuarriendo.com/ApiWebR/APIRadicacionNG/ObtenerDatosCodeudor?PKCodeudor=${PKCodeudor}`;
-//const url = 'http://pruebas.centraldearrendamientos.com/WebR17_JTDesarrollo.NetEnvironment/APIRadicacionNG/ObtenerDatosCodeudor?PKCodeudor=3650';
+console.log(PKCodeudor);
+const APIurl = `https://check2.zuarriendo.com/ApiWebR/APIRadicacionNG/ObtenerDatosCodeudor?PKCodeudor=${PKCodeudor}`;
+
 const headers = {
   'Accept': 'application/json',
   'Content-Type': 'application/json'
@@ -25,7 +25,7 @@ let tipoDocumento;
 let numeroDocumento;
 let celularCodeudor;
 let  emailCodeudor;
-fetch(url, {
+fetch(APIurl, {
   method: 'GET',
   headers: headers
 })
@@ -33,8 +33,8 @@ fetch(url, {
   .then(data => {
     console.log(data)
     // Aquí irán los pasos 2 y 3
-    const tipoDeCodeudor = data.TipoPersonaCodeudor;
-    const ocupacion = data.OcupacionCodeudor;
+    tipoDeCodeudor = data.TipoPersonaCodeudor;
+    ocupacion = data.OcupacionCodeudor;
     primerNombre= data.PrimerNombreCodeudor;
     segundoNombre= data.SegundoNombreCodeudor;
     primerApellido=data.PrimerApellidoCodeudor;
@@ -148,6 +148,10 @@ function ocultarCamposNombresApellidos() {
     document.getElementById('container-ingresosempresa').style.display = 'block';
     document.getElementById('container-egresosempresa').style.display = 'block';
     document.getElementById('container-nit').style.display = 'block';
+    document.getElementById('container-validacion').style.display = 'none';
+    document.getElementById('container-validacionDos').style.display = 'none';
+    document.getElementById('container-validacionRepLegal').style.display = 'block';
+    document.getElementById('container-validacionRepLegalDos').style.display = 'block';
 
 }
 
@@ -176,6 +180,7 @@ function mostrarCamposNombresApellidos() {
     document.getElementById('container-validacion').style.display = 'block';
     document.getElementById('container-validacionDos').style.display = 'block';
     document.getElementById('container-validacionRepLegal').style.display = 'none';
+    document.getElementById('container-validacionRepLegalDos').style.display = 'none';
     document.getElementById('container-sexo').style.display = 'block';
     document.getElementById('container-correo').style.display = 'block';
     document.getElementById('container-celular').style.display = 'block';

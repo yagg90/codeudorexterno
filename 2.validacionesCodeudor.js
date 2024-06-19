@@ -13,7 +13,7 @@ function validarInput(input) {
     input.style.borderColor = "green"; // Cambiar a color verde cuando se llena
      input.addEventListener("blur", function() {
 
-      if (!/^[a-zA-Z]+$/.test(input.value.trim())) {
+      if (!/^[A-Za-z0-9\s,.#-]+$/.test(input.value.trim())) {
         input.style.borderColor = "red"; // Cambiar a color rojo si no son letras
         input.nextElementSibling.textContent = "Por favor ingresa solo letras."; // Mensaje de error
       } else {

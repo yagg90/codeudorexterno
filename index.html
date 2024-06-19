@@ -11,6 +11,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" type="image/x-icon">
+  <link rel="icon" href="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" type="image/x-icon">
   <title>Radicación codeudor</title>
 </head>
 <body>
@@ -150,11 +152,14 @@
             <option value="">Selecciona una opción</option>
             <option value="empleado">Empleado</option>
             <option value="independiente">Independiente</option>
+            <option value="pensionado">Pensionado</option>
+            <option value="rentistaCapital">Rentista Capital</option>
           </select>
         </div>
         
       </div>
         <div class="form-step__child">
+          <h2 id="titlejuridico" >Datos de Empresa</h2>
           <div class="input-wrapper"id="container-razonsocial">
             <label for="razonsocial">Razon social</label>
             <input type="text" name="razonsocial" id="razonsocial" placeholder="Ej: example s.a.s">
@@ -231,7 +236,7 @@
       <span class="close">&times;</span>
       <h2>Verificación de datos</h2>
 
-      <div id="datosPaso1" class="modal__datos-paso-1">
+    <div id="datosPaso1" class="modal__datos-paso-1">
 
       <div class="modal__datos-paso-1--col" id="container-validacion" >
         <div class="modal__datos-paso-1--data-container " id="container-valnombre">
@@ -286,33 +291,53 @@
             <option value="" selected="" disabled="" hidden="">Selecciona una opción</option>
             <option value="empleado">Empleado</option>
             <option value="independiente">Independiente</option>
+            <option value="pensionado">Pensionado</option>
+            <option value="rentistaCapital">Rentista Capital</option>
           </select>
         </div>
       </div>
       <div class="modal__datos-paso-1--col" id="container-validacionRepLegal">
         <div class="modal__datos-paso-1--data-container">
           <label for="razonsocial">Razon social</label>
-          <input type="text" name="razonsocial" id="razonsocial" disabled>
+          <input type="text" name="razonsocial" id="razonSocialVali" disabled>
         </div>
         <div class="modal__datos-paso-1--data-container">
           <label for="direccion">Direccion</label>
-          <input type="text" name="direccion" id="direccion" disabled>
+          <input type="text" name="direccion" id="direccionVali" disabled>
         </div>
         <div class="modal__datos-paso-1--data-container">
           <label for="ciudEmpresa">Ciudad empresa</label>
-          <input type="text" name="ciudEmpresa" id="ciudEmpresa" disabled>
+          <input type="text" name="ciudEmpresa" id="ciudEmpresaVali" disabled>
         </div>
         <div class="modal__datos-paso-1--data-container">
           <label for="telEmpresa">Telefono empresa</label>
-          <input type="text" name="telEmpresa" id="telEmpresa" disabled>
+          <input type="text" name="telEmpresa" id="telEmpresaVali" disabled>
         </div>
         <div class="modal__datos-paso-1--data-container">
           <label for="ingresos">Ingresos</label>
-          <input type="number" name="ingresos" id="ingresos" disabled>
+          <input type="number" name="ingresos" id="ingresosVali" disabled>
         </div>
         <div class="modal__datos-paso-1--data-container">
           <label for="egresos">Egresos</label>
-          <input type="text" name="egresos" id="egresos" disabled>
+          <input type="text" name="egresos" id="egresosVali" disabled>
+        </div>
+      </div>
+      <div class="modal__datos-paso-1--col" id="container-validacionRepLegalDos">
+        <div class="modal__datos-paso-1--data-container " id="primerNombreCodReplegal">
+          <label for="primerNombreCodReplegal">Primer Nombre</label>
+          <input type="text" id="primerNombreCodReplegalVali"  >
+        </div>
+        <div class="modal__datos-paso-1--data-container" id="segundoNombreCodReplegal">
+          <label for="segundoNombreCodReplegal">Segundo Nombre</label>
+          <input type="text" id="segundoNombreCodReplegalVali" >
+        </div>
+        <div class="modal__datos-paso-1--data-container" id="primerApellidoCodReplegal">
+          <label for="primerApellidoCodReplegal">Primer Apellido</label>
+          <input type="text" id="primerApellidoCodReplegalVali" >
+        </div>
+        <div class="modal__datos-paso-1--data-container"id="segundoApellidoCodReplegal">
+          <label for="segundoApellidoCodReplegal">Segundo Apellido</label>
+          <input type="text" id="segundoApellidoCodReplegalVali" >
         </div>
       </div>
       </div>

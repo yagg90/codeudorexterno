@@ -13,22 +13,6 @@ const selectCityFirstModal = document.getElementById('ciudadModalFormulario')
 let formStepsNum = 0;
 progressBarMobileTitle.children[0].textContent = progressActiveEl.dataset.title
 
-// nextBtns.forEach((btn) => {
-//   btn.addEventListener("click", () => {
-//     formStepsNum++;
-//     updateFormSteps();
-//     updateProgressbar();
-//   });
-// });
-
-// prevBtns.forEach((btn) => {
-// btn.addEventListener("click", () => {
-//   formStepsNum--;
-//   updateFormSteps();
-//   updateProgressbar();
-// });
-// });
-
 function updateFormSteps() {
   formSteps.forEach((formStep) => {
     formStep.classList.contains("form-step-active") &&
@@ -58,10 +42,7 @@ function updateProgressBar() {
   progressBarMobileTitle.children[0].textContent = progressActive[progressActive.length - 1].dataset.title
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Abre automáticamente la ventana modal al cargar la página
-  abrirModal("modalInicio");
-});
+
 
 // Función para abrir una ventana modal por su ID
 function abrirModal(idModal) {
@@ -72,23 +53,23 @@ function abrirModal(idModal) {
 
 document.addEventListener("DOMContentLoaded", function () {
   //modal de aprobacion o rechazo 
-  var siguienteapro = document.getElementById("btnaprobado");
+  var siguienteapro = document.getElementById("btnEmpezar");
   var btncarga = document.getElementById("btn-aprobado");
 
   // Evento para abrir la ventana modal del formulario al hacer clic en el botón "Empezar Ahora"
   siguienteapro.addEventListener("click", function () {
     // Abrir la ventana modal del formulario
-    document.getElementById("modalaprobado").style.display = "block";
+   // document.getElementById("modalaprobado").style.display = "block";
   });
 
   // Evento para cerrar la ventana modal del formulario al hacer clic en el botón "Enviar"
-  btncarga.addEventListener("click", function (event) {
-    event.preventDefault(); // Evitar el comportamiento predeterminado del botón (en este caso, el envío del formulario)
+ // btncarga.addEventListener("click", function (event) {
+    //event.preventDefault(); // Evitar el comportamiento predeterminado del botón (en este caso, el envío del formulario)
 
     // Cerrar la ventana modal del formulario
-    document.getElementById("modalFormulario").style.display = "none";
+    //document.getElementById("modalFormulario").style.display = "none";
 
-  });
+  //});
 
   // Obtener elementos necesarios
   var modal = document.getElementById("modaldeacuerdos");
@@ -127,9 +108,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Evento para abrir la ventana modal del formulario al hacer clic en el botón "Empezar Ahora"
   btnEmpezar.addEventListener("click", function () {
     // Cerrar la ventana modal de inicio
-    document.getElementById("modalInicio").style.display = "none";
+    //document.getElementById("modalInicio").style.display = "none";
     // Abrir la ventana modal del formulario
-    document.getElementById("modalFormulario").style.display = "block";
+  //  document.getElementById("modalFormulario").style.display = "block";
   });
 
   // Obtener elementos necesarios
@@ -169,28 +150,15 @@ var otpModal = document.getElementById("otpModal");
 // var closeBtns = document.querySelectorAll(".close");
 
 // Función para mostrar el modal del OTP
-function showOTPMOdal() {
-  otpModal.style.display = "block";
-}
+////otpModal.style.display = "block";
+//}
 
 // Cuando se haga clic en el botón de confirmar, cerrar el primer modal
-confirmBtn.onclick = function () {
-  modal.style.display = "none";
+//confirmBtn.onclick = function () {
+  //modal.style.display = "none";
   // Mostrar el modal del OTP después de que el primero se haya cerrado
-  setTimeout(showOTPMOdal, 300); // Ajusta este tiempo según necesites
-}
-
-// Función para cerrar el modal cuando se haga clic en la 'x'
-// function closeModal() {
-
-//   console.log(this);
-//   this.parentElement.parentElement.style.display = "none";
-// }
-
-// // Agregar el evento de clic a todos los botones de cierre
-// closeBtns.forEach(function (btn) {
-//   btn.onclick = closeModal;
-// });
+ // setTimeout(showOTPMOdal, 300); // Ajusta este tiempo según necesites
+//}
 
 // Cuando se haga clic fuera del modal, cerrarlo
 window.onclick = function (event) {
@@ -218,15 +186,11 @@ var confirmBtn = document.getElementById("confirmModalBtn");
 var otpModal = document.getElementById("otpModal");
 
 // Cuando se haga clic en el botón de confirmar, mostrar el modal del OTP
-confirmBtn.onclick = function () {
-  modal.style.display = "none";
-  otpModal.style.display = "block";
-}
+//confirmBtn.onclick = function () {
+ // modal.style.display = "none";
+ // otpModal.style.display = "block";
+//}
 
-// Cuando se haga clic en la 'x' del modal de OTP, cerrarlo
-// otpModal.getElementsByClassName("close")[0].onclick = function() {
-//   otpModal.style.display = "none";
-// }
 
 // Cuando se haga clic fuera del modal de OTP, cerrarlo
 window.onclick = function (event) {
@@ -234,19 +198,3 @@ window.onclick = function (event) {
     otpModal.style.display = "none";
   }
 }
-
-
-
-// función para mostrar el campo de otra cuidad
-selectCityFirstModal.addEventListener('change', function (e) {
-  // console.log(e.target);
-  // console.log(e.target.value);
-  if (e.target.value === "otra") {
-    e.target.nextElementSibling.classList.remove('display-none')
-    e.target.nextElementSibling.classList.add('display-block')
-  } else {
-    e.target.nextElementSibling.classList.remove('display-block')
-    e.target.nextElementSibling.classList.add('display-none')
-
-  }
-})

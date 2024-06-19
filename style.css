@@ -103,31 +103,33 @@ h4 {
 body {
   font-family: "Roboto", Montserrat, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   place-items: center;
   min-height: 100vh;
+  padding-bottom: 4rem;
 }
 
 /* Global Stylings */
 label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: #0A4989;
-  font-size: 11px;
-  text-transform: uppercase;
   position: absolute;
   z-index: 1;
   left: 20px;
   top: 14px;
-  padding: 0 2px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .25rem;
+  color: #0A4989;
+  font-size: 11px;
+  text-transform: uppercase;
+  padding: 0 4px;
   pointer-events: none;
   background: white;
   transition: transform 100ms ease;
   transform: translateY(-20px);
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center
 }
 
 select {
@@ -292,6 +294,7 @@ input {
   border: 1px solid #ffffff;
   border-radius: 0.35rem;
   padding: 1.5rem;
+  padding-top: 0;
 }
 
 .form-step {
@@ -704,6 +707,14 @@ footer img {
   /* Asegura que la ventana modal esté en la capa superior */
   overflow: auto;
   /* Añade scroll si el contenido es más grande que la ventana modal */
+}
+#odigoModal .modal-content input {
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 1.25rem;
 }
 
 

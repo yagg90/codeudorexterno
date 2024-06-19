@@ -27,47 +27,80 @@ const datosFormulario = {
 
 }
 // abrir modal de verificacion y carga de datos
-document.addEventListener('DOMContentLoaded', function ()
- {
+document.addEventListener('DOMContentLoaded', function () {
   const personalDataForm = document.querySelector('#personalDataForm')
-  //console.log(personalDataForm);
-  //const abrirModalAcuerdos = document.getElementById('abrirModalDeAcuerdos')
-  //const btnAceptarAcuerdos = document.getElementById('botonAceptar')
-
+  // console.log(personalDataForm)
 
   personalDataForm.addEventListener('submit', function (e) {
     e.preventDefault()
-    var campos = personalDataForm.elements;
+    const campos = personalDataForm.elements
+    console.log("campos:", campos);
     const errorMessageElement = personalDataForm.querySelector(
       '#personalDataFormErrorMessage'
     )
+    const data = new FormData(personalDataForm)
 
-    var hayCamposVacios = false;
+    let hayCamposErroneos = false // vacios o incorrectos de acuerdo a las validaciones de texto, numero y correo
     let errorMessage = ''
     // Iterar sobre los campos y verificar si alguno está vacío
-    //for (var i = 0; i < campos.length; i++) {
+    for (var i = 0; i < campos.length; i++) 
+      {
+      const field = campos[i];
+
+      // Skip fields that are hidden
+      if (field.offsetParent === null) {
+        continue;
+      }
       // Verificar si el campo  y está vacío
-      //if (campos.type !== "submit" && campos[i].value.trim() === "") {
-        //console.log("empty", campos[i], 'value', campos[i].value);
-        //hayCamposVacios = true;
-        //errorMessage = 'Por favor completa todos los campos antes de continuar.'
-        //break; 
-      //} else if (campos.type !== "submit" && campos[i].value === "on") {
-        //console.log("empty", campos[i], 'value', campos[i].value);
-        //hayCamposVacios = true;
-       // errorMessage = 'Por favor autoriza el uso de tu información y términos y condiciones'
-        //break
-      //}
-    //}
+      if (campos[i].type !== 'submit' && campos[i].value.trim() === '') {
+        console.log('empty', campos[i], 'value', campos[i].value)
+        hayCamposErroneos = true
+        errorMessage = 'Por favor completa todos los campos antes de continuar.'
+        break
+      }
+      //if (campos[i].type === 'text' && campos[i].dataset.type !== 'number') {
+        // console.log("input text");
+        // console.log('value', campos[i].value);
+        // console.log("is valid???", isInputTextValid(campos[i].value));
+       // if (!isInputTextValid(campos[i].value)) {
+         // hayCamposErroneos = true
+          //errorMessage = 'Por favor verifica los datos antes continuar. 1'
+         // break
+        //}
+     // }
+      if (campos[i].type === 'number') {
+        if (!isInputNumberValid(campos[i].value)) {
+          hayCamposErroneos = true
+          errorMessage = 'Por favor verifica los datos antes continuar. 2'
+          break
+        }
+      }
+      if (campos[i].type === 'email') {
+        if (!isEmailValid(campos[i].value)) {
+          hayCamposErroneos = true
+          errorMessage = 'Por favor verifica los datos antes continuar. 3'
+          break
+        }
+      }
+    }
+   
+    if (
+      !data.has('acceptPersonalDataUse') ||
+      !data.has('acceptTermsAndConditions')
+    ) {
+      hayCamposErroneos = true
+      errorMessage =
+        'Por favor autoriza el uso de tu información y términos y condiciones'
+    }
+
     // Si hay algún campo vacío, mostrar un mensaje de error
-    if (hayCamposVacios) {
-      // alert("Por favor completa todos los campos antes de continuar.");
+    if (hayCamposErroneos) {
+      errorMessageElement.style.display = 'block'
       errorMessageElement.textContent = errorMessage
-    } else 
-    {
+    } else {
+      errorMessageElement.textContent = ''
       const validacionModal = document.getElementById('validacionModal')
       // const datosPaso1 = document.getElementById('datosPaso1')
-      const data = new FormData(personalDataForm)
 
       validacionModal.style.display = 'block'
 
@@ -99,8 +132,7 @@ document.addEventListener('DOMContentLoaded', function ()
       datosFormulario.ingresos=data.get('ingresos')
       datosFormulario.egresos=data.get('egresos')
 
-      console.log(datosFormulario);
-
+      console.log(datosFormulario)
 
       const modalPrimerNombre = document.getElementById('datosPaso1primernombre')
       const modalSegundoNombre = document.getElementById('datosPaso1segundonombre')
@@ -112,7 +144,14 @@ document.addEventListener('DOMContentLoaded', function ()
       const modalCorreo = document.getElementById('datosPaso1correo')
       const modalCelular = document.getElementById('datosPaso1celular')
       const modalOcupacion = document.getElementById('datosPaso1ocupacion')
-    
+
+      //Perfil juridico
+      const modalPrimerNombreRepLegal = document.getElementById('primerNombreCodReplegalVali')
+      const modalSegundoNombreRepLegal = document.getElementById('segundoNombreCodReplegalVali')
+      const modalPrimerApellidoRepLegal = document.getElementById('primerApellidoCodReplegalVali')
+      const modalSegundoApellidoRepLegal= document.getElementById('segundoApellidoCodReplegalVali')
+      
+
       modalPrimerNombre.value = datosFormulario.primerNombreCod
       modalSegundoNombre.value = datosFormulario.segundoNombreCod
       modalPrimerApellido.value = datosFormulario.primerApellidoCod
@@ -123,7 +162,11 @@ document.addEventListener('DOMContentLoaded', function ()
       modalCorreo.value = datosFormulario.emailCod
       modalCelular.value = datosFormulario.celularCod
       modalOcupacion.value = datosFormulario.ocupacionCod 
-     
+      modalPrimerNombreRepLegal.value = datosFormulario.primerNombreCodReplegal
+      modalSegundoNombreRepLegal.value= datosFormulario.segundoNombreCodRepLegal
+      modalPrimerApellidoRepLegal.value= datosFormulario.primerApellidoCodRepLegal
+      modalSegundoApellidoRepLegal.value= datosFormulario.segundoApellidoCodRepLegal
+      
     }
   })
   const datosPaso1 = document.getElementById('datosPaso1')
@@ -140,8 +183,27 @@ document.addEventListener('DOMContentLoaded', function ()
       select.disabled = !select.disabled
     }
   })
-
 })
+// Example validation functions
+function isInputTextValid(value) {
+  // Add your custom validation logic here
+  return /^[a-zA-Z\s]+$/.test(value); // Example: Only allows letters and spaces
+}
+
+function isInputNumberValid(value) {
+  // Add your custom validation logic here
+  return /^[0-9]+$/.test(value); // Example: Only allows digits
+}
+
+function isEmailValid(value) {
+  // Add your custom validation logic here
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return emailPattern.test(value); // Example: Basic email validation
+}
+
+
+
+
 
 document.getElementById('confirmModalBtn').addEventListener('click', function () {
 
