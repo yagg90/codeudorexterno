@@ -271,7 +271,11 @@ input {
   left: 0;
 }
 
-.progress-step:nth-child(4):after {
+/* .progress-step:nth-child(4):after {
+  right: 0;
+} */
+
+.progress-step:last-child:after {
   right: 0;
 }
 
@@ -380,7 +384,7 @@ input {
   .form-step__child {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr; */
     /* justify-content: center; */
     gap: 1.5rem;
     margin-bottom: 3rem;
@@ -606,7 +610,7 @@ footer img {
 }
 
 .personal-data-form__error-message {
-  color: red;
+  color: red !important;
   font-size: 1.25rem;
   padding-block: 1rem;
   text-align: center;
@@ -639,33 +643,47 @@ footer img {
 .modal-content {
   position: relative;
   background-color: #fefefe;
-  margin: 15% auto; /* 15% desde la parte superior y centrado */
+  margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Puede ajustarse según sea necesario */
-  max-width: 600px; /* Ancho máximo del modal
+  width: 80%; 
+  max-width: 600px;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  /* cursor: pointer; */
+  font-size: 16px;
+  margin: 0 auto;
+  display: block;
 }
 
-#submitOTPBtn {
-  background-color: #0A4989;
-  /* Color azul */
-  color: white;
-  /* Texto blanco */
-  border: none;
-  /* Sin borde */
-  border-radius: 20px;
-  /* Hacerlo redondo */
-  padding: 10px 20px;
-  /* Espacio interior */
-  cursor: pointer;
-  /* Cursor de puntero */
-  font-size: 16px;
-  /* Tamaño de fuente */
-  margin: 0 auto;
-  /* Centrar horizontalmente */
-  display: block;
-  /* Hacerlo un bloque para centrar */
+.modal-content__spinner-container {
+  width: 100px;
+  height: 100px;
+  align-self: center;
+  justify-self: center;
+}
 
+.modal-content__message,
+.modal-content__message-small{
+  color: var(--primary-color);
+  filter: grayscale(30%);
+  font-size: 1.25rem;
+  padding-bottom: .5rem;
+  cursor: default;
+}
+
+.modal-content__message-small{
+  font-size: 1rem;
+}
+
+@media screen and (max-width:480px) {
+  .modal-content__message,
+  .modal-content__message-small{
+    width: 80%;
+    margin: 0 auto;
+  }
+  
 }
 
 /* Estilos adicionales para el botón del modal */
