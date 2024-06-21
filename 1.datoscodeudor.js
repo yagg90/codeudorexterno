@@ -211,37 +211,38 @@ function isEmailValid(value) {
 
 
 
-document.getElementById('confirmModalBtn').addEventListener('click', function () {
+// document.getElementById('confirmModalBtn').addEventListener('click', function () {
 
-  // Mostrar paso 2 del formulario
-    document.getElementById('personalDataForm').style.display = 'none'
+//   // Mostrar paso 2 del formulario
+//     document.getElementById('personalDataForm').style.display = 'none'
 
-    // Mostrar paso 2 del formulario
-    document.getElementById('paso2').style.display = 'block'
+//     // Mostrar paso 2 del formulario
+//     document.getElementById('paso2').style.display = 'block'
 
-    // Cerrar todas las ventanas modales
-    closeModal()
+//     // Cerrar todas las ventanas modales
+//     closeModal()
 
-    formStepsNum++
-    updateFormSteps()
-    updateProgressBar()
+//     formStepsNum++
+//     updateFormSteps()
+//     updateProgressBar()
   
-})
-document.getElementById('despedida').addEventListener('click', function () {
+// })
 
-  const modal = document.getElementById('modaldespedida');
-  // Mostrar paso 2 del formulario
-    document.getElementById('personalDataForm').style.display = 'none'
+// document.getElementById('despedida').addEventListener('click', function () {
 
-    // Mostrar paso 2 del formulario
-    document.getElementById('paso2').style.display = 'block'
-    //mostrar modal despedida
-    modal.style.display = 'block';
+//   const modal = document.getElementById('modaldespedida');
+//   // Mostrar paso 2 del formulario
+//     document.getElementById('personalDataForm').style.display = 'none'
 
-    // Cerrar todas las ventanas modales
-    closeModal()
+//     // Mostrar paso 2 del formulario
+//     document.getElementById('paso2').style.display = 'block'
+//     //mostrar modal despedida
+//     modal.style.display = 'block';
+
+//     // Cerrar todas las ventanas modales
+//     closeModal()
   
-})
+// })
 
 
   
