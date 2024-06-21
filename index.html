@@ -12,7 +12,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" type="image/x-icon">
-  <link rel="icon" href="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" type="image/x-icon">
   <title>Radicación codeudor</title>
 </head>
 <body>
@@ -48,7 +47,7 @@
     
 
     <!-- Paso 1: Información personal -->
-    <div class="form-step form-step-active">
+    <div class="form-step form-step-active" id="container-DatospersonaNat">
       <h2>Estos son los datos suministrados por el inquilino</h2>
       <div class="form-step__child ">
         <div class="input-wrapper" id="container-nombre">
@@ -73,7 +72,7 @@
         </div>
       </div>
      
-      <div class="form-step__child ">
+      <div class="form-step__child " id="container-representantelegal">
         <h2 id="titlejuridico" >Datos Representante legal</h2>
         <br>
         <div class="input-wrapper" id="container-nombrerepresentantelegal">
@@ -100,8 +99,8 @@
           <label for="documentoCodRepLegal">Tipo de documento</label>
           <select name="documentoCodRepLegal" id="documentoCodRepLegal"  title="Por favor selecciona una opción.">
             <option value="" >Selecciona una opción</option>
-            <option value="cedula">Cédula de ciudadanía</option>
-            <option value="cedula_extrangeria">Cédula de extranjería</option>
+            <option value="13">Cédula de ciudadanía</option>
+            <option value="22">Cédula de extranjería</option>
           </select>
           
         </div>
@@ -111,13 +110,14 @@
           <span class="error-message"></span>
         </div>
       </div>
-      <div class="form-step__child" >
+
+      <div class="form-step__child" id="container-DatosperNatdos">
         <div class="input-wrapper" id="container-tipodocumento">
           <label for="documentoCod">Tipo de documento</label>
           <select name="documentoCod" id="documentoCod"  title="Por favor selecciona una opción.">
             <option value="" >Selecciona una opción</option>
-            <option value="cedula">Cédula de ciudadanía</option>
-            <option value="cedula_extrangeria">Cédula de extranjería</option>
+            <option value="13">Cédula de ciudadanía</option>
+            <option value="22">Cédula de extranjería</option>
           </select>
           
         </div>
@@ -150,16 +150,17 @@
           <label for="ocupacionCod">Ocupación</label>
           <select name="ocupacionCod" id="ocupacionCod" title="Por favor selecciona una opción.">
             <option value="">Selecciona una opción</option>
-            <option value="empleado">Empleado</option>
-            <option value="independiente">Independiente</option>
-            <option value="pensionado">Pensionado</option>
-            <option value="rentistaCapital">Rentista Capital</option>
+            <option value="EMP">Empleado</option>
+            <option value="IND">Independiente</option>
+            <option value="PEN">Pensionado</option>
+            <option value="GEN">Rentista Capital</option>
           </select>
         </div>
         
       </div>
-        <div class="form-step__child">
-          <h2 id="titlejuridico" >Datos de Empresa</h2>
+        <div class="form-step__child" id="container-datosEmpresa">
+          <h2 id="datosempresa" >Datos de Empresa</h2>
+          <br>
           <div class="input-wrapper"id="container-razonsocial">
             <label for="razonsocial">Razon social</label>
             <input type="text" name="razonsocial" id="razonsocial" placeholder="Ej: example s.a.s">
@@ -186,13 +187,13 @@
             <span class="error-message"></span>
           </div>
           <div class="input-wrapper" id="container-correoEmpresa">
-            <label for="emailCodJuridico">Correo</label>
+            <label for="emailCodJuridico">Correo empresa</label>
             <input type="email" name="emailCodJuridico" id="emailCodJuridico" placeholder="Ejemplo: correo@example.com">
             <span class="error-message"></span>
           </div>
           <div class="input-wrapper"id="container-ingresosempresa">
             <label for="ingresos">Ingresos</label>
-            <input type="number" name="ingresos" id="ingresos"placeholder="Ej:1.000.0000">
+            <input type="number" name="ingresos" id="ingresosCodJuridico"placeholder="Ej:1.000.0000">
             <span class="error-message"></span>
           </div>
           <div class="input-wrapper"id="container-egresosempresa">
@@ -258,8 +259,8 @@
         <div class="modal__datos-paso-1--data-container"id="container-valtipodocumento">
           <label for="tipodocumento">Tipo de documento</label>
           <select name="tipodocumento" id="datosPaso1tipodocumento" >
-            <option value="cedula">Cédula de ciudadanía</option>
-            <option value="cedula_extranjeria">Cédula de extranjería</option>
+            <option value="13">Cédula de ciudadanía</option>
+            <option value="22">Cédula de extranjería</option>
           </select>
         </div>
       </div>
@@ -289,10 +290,10 @@
           <label for="ocupacion">Ocupación</label>
           <select name="ocupacion" id="datosPaso1ocupacion" disabled>
             <option value="" selected="" disabled="" hidden="">Selecciona una opción</option>
-            <option value="empleado">Empleado</option>
-            <option value="independiente">Independiente</option>
-            <option value="pensionado">Pensionado</option>
-            <option value="rentistaCapital">Rentista Capital</option>
+            <option value="EMP">Empleado</option>
+            <option value="IND">Independiente</option>
+            <option value="PEN">Pensionado</option>
+            <option value="GEN">Rentista Capital</option>
           </select>
         </div>
       </div>
@@ -302,8 +303,16 @@
           <input type="text" name="razonsocial" id="razonSocialVali" disabled>
         </div>
         <div class="modal__datos-paso-1--data-container">
+          <label for="nit">Nit</label>
+          <input type="text" name="nit" id="nitVali" disabled>
+        </div>
+        <div class="modal__datos-paso-1--data-container">
           <label for="direccion">Direccion</label>
           <input type="text" name="direccion" id="direccionVali" disabled>
+        </div>
+        <div class="input-wrapper" id="container-correoEmpresa">
+          <label for="emailCodJuridico">Correo</label>
+          <input type="email" name="emailCodJuridico" id="emailCodJuridicoVali" disabled>
         </div>
         <div class="modal__datos-paso-1--data-container">
           <label for="ciudEmpresa">Ciudad empresa</label>

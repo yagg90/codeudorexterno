@@ -23,8 +23,10 @@ let primerApellido;
 let segundoApellido;
 let tipoDocumento;
 let numeroDocumento;
-let celularCodeudor;
-let  emailCodeudor;
+let celularCod;
+let emailCodeudor;
+let ocupacion
+let nit
 fetch(APIurl, {
   method: 'GET',
   headers: headers
@@ -41,23 +43,25 @@ fetch(APIurl, {
     segundoApellido=data.SegundoApellidoCodeudor;
     tipoDocumento=data.TipoDocumentoCodeudor;
     numeroDocumento=data.NumeroDocumentoCodeudor;
-    celularCodeudor=data.CelularCodeudor;
+    celularCod=data.CelularCodeudor;
     codigoCodeudor = data.CodigoOTP;
     razonSocial=data.RazonSocialCodeudor;
     emailCodeudor=data.EmailCodeudor;
+    nit=data.NumeroDocumentoCodeudor;
 
 
     const valorConcatenado = `${tipoDeCodeudor}_${ocupacion}`;
     console.log(codigoCodeudor)
     console.log(valorConcatenado)
     console.log(primerNombre)
-    console.log(tipoDocumento)
+    
 
     mostrarModal(valorConcatenado);
   })
   .catch(error => console.error(error));
 
-  function mostrarModal(valorConcatenado) {
+  function mostrarModal(valorConcatenado) 
+  {
     let imagen;
     switch (valorConcatenado) {
         case 'C_NA':
@@ -69,17 +73,20 @@ fetch(APIurl, {
             imagen = 'img/empleado.jpeg';
             mostrarCamposNombresApellidos(); // Mostrar nombres y apellidos
             cargarDocumentosEmpleado();
+            
             break;
         case 'P_IND':
                 imagen = 'img/independiente.jpeg';
                 mostrarCamposNombresApellidos(); // Mostrar nombres y apellidos
                 cargarDocumentosIdependiente();
+                
                 break;
             
         default:
             imagen = 'img/rentista capital.jpeg';
             mostrarCamposNombresApellidos(); // Mostrar nombres y apellidos
             cargarDocumentosRentistacapital();
+            
     }
 
     const modal = document.getElementById('miModal');
@@ -97,6 +104,7 @@ fetch(APIurl, {
 
     modal.style.display = "block"; // Mostrar el modal
 }
+
 
 document.getElementById('closeModal').onclick = function() {
     document.getElementById('miModal').style.display = "none";
@@ -118,10 +126,11 @@ document.getElementById('verificarCodigoBtn').onclick = function() {
     }
 }
 
+
 // Función para ocultar campos de nombres y apellidos del primer paso del formulario
 function ocultarCamposNombresApellidos() {
 
-    document.getElementById('nit').value = numeroDocumento;
+    document.getElementById('nit').value = nit;
     document.getElementById('razonsocial').value = razonSocial;
     document.getElementById('emailCodJuridico').value = emailCodeudor;
     document.getElementById('container-nombre').style.display = 'none';
@@ -134,19 +143,8 @@ function ocultarCamposNombresApellidos() {
     document.getElementById('container-correo').style.display = 'none';
     document.getElementById('container-celular').style.display = 'none';
     document.getElementById('container-ocupacion').style.display = 'none';
-    document.getElementById('container-nombrerepresentantelegal').style.display = 'block';
-    document.getElementById('container-segnombrerepresentantelegal').style.display = 'block';
-    document.getElementById('container-apellidorepresentantelegal').style.display = 'block';
-    document.getElementById('container-segapellidorepresentantelegal').style.display = 'block';
-    document.getElementById('container-tipodocumentorepresentantelegal').style.display = 'block';
-    document.getElementById('container-numdocumentorepresentantelegal').style.display = 'block';
-    document.getElementById('container-razonsocial').style.display = 'block';
-    document.getElementById('container-direccion').style.display = 'block';
-    document.getElementById('container-ciudempresa').style.display = 'block';
-    document.getElementById('container-telempresa').style.display = 'block';
-    document.getElementById('container-correoEmpresa').style.display = 'block';
-    document.getElementById('container-ingresosempresa').style.display = 'block';
-    document.getElementById('container-egresosempresa').style.display = 'block';
+    document.getElementById('container-representantelegal').style.display = 'block';
+    document.getElementById('container-datosEmpresa').style.display = 'block';
     document.getElementById('container-nit').style.display = 'block';
     document.getElementById('container-validacion').style.display = 'none';
     document.getElementById('container-validacionDos').style.display = 'none';
@@ -162,21 +160,13 @@ function mostrarCamposNombresApellidos() {
     document.getElementById('primerApellidoCod').value = primerApellido;
     document.getElementById('segundoApellidoCod').value = segundoApellido;
     document.getElementById('numDocumentoCod').value = numeroDocumento;
-    document.getElementById('celularCod').value = celularCodeudor;
+    document.getElementById('celularCod').value = celularCod;
     document.getElementById('emailCod').value = emailCodeudor;
-    document.getElementById('container-nombrerepresentantelegal').style.display = 'none';
-    document.getElementById('container-segnombrerepresentantelegal').style.display = 'none';
-    document.getElementById('container-apellidorepresentantelegal').style.display = 'none';
-    document.getElementById('container-segapellidorepresentantelegal').style.display = 'none';
-    document.getElementById('container-tipodocumentorepresentantelegal').style.display = 'none';
-    document.getElementById('container-numdocumentorepresentantelegal').style.display = 'none';
+    document.getElementById('documentoCod').value = tipoDocumento;
+    document.getElementById('ocupacionCod').value = ocupacion;
     document.getElementById('container-nit').style.display = 'none';
-    document.getElementById('container-nombre').style.display = 'block';
-    document.getElementById('container-segnombre').style.display = 'block';
-    document.getElementById('container-apellido').style.display = 'block';
-    document.getElementById('container-segapellido').style.display = 'block';
-    document.getElementById('container-tipodocumento').style.display = 'block';
-    document.getElementById('container-numdocumento').style.display = 'block';
+    document.getElementById('container-DatospersonaNat').style.display = 'block';
+
     document.getElementById('container-validacion').style.display = 'block';
     document.getElementById('container-validacionDos').style.display = 'block';
     document.getElementById('container-validacionRepLegal').style.display = 'none';
@@ -185,13 +175,10 @@ function mostrarCamposNombresApellidos() {
     document.getElementById('container-correo').style.display = 'block';
     document.getElementById('container-celular').style.display = 'block';
     document.getElementById('container-ocupacion').style.display = 'block';
-    document.getElementById('container-razonsocial').style.display = 'none';
-    document.getElementById('container-direccion').style.display = 'none';
-    document.getElementById('container-ciudempresa').style.display = 'none';
-    document.getElementById('container-telempresa').style.display = 'none';
-    document.getElementById('container-ingresosempresa').style.display = 'none';
-    document.getElementById('container-egresosempresa').style.display = 'none';
+    document.getElementById('container-datosEmpresa').style.display = 'none';
+    document.getElementById('container-representantelegal').style.display = 'none';
     document.getElementById('titlejuridico').style.display = 'none';
+    document.getElementById('datosempresa').style.display = 'none';
     document.getElementById('container-correoEmpresa').style.display = 'none';
 }
 // Función para mostrar campos de nombres y apellidos del primer paso del formulario
@@ -235,5 +222,10 @@ function cargarDocumentosjuridico() {
     document.getElementById('container-extractosbanca').style.display = 'block';
 
 }
+
+if(tipoDocumento===13)
+    {
+        tipoDocumento.value = 'cedula';
+    }
 
 

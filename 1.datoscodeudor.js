@@ -5,7 +5,7 @@ const datosFormulario = {
   primerApellidoCod: '',
   segundoApellidoCod: '',
   documentoCod: '',
-  numDocumentoCod: 0,
+  numDocumentoCod: '',
   sexoCod: '',
   emailCod: '',
   celularCod: '',
@@ -58,16 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
         errorMessage = 'Por favor completa todos los campos antes de continuar.'
         break
       }
-      //if (campos[i].type === 'text' && campos[i].dataset.type !== 'number') {
-        // console.log("input text");
-        // console.log('value', campos[i].value);
-        // console.log("is valid???", isInputTextValid(campos[i].value));
-       // if (!isInputTextValid(campos[i].value)) {
-         // hayCamposErroneos = true
-          //errorMessage = 'Por favor verifica los datos antes continuar. 1'
-         // break
-        //}
-     // }
+     
       if (campos[i].type === 'number') {
         if (!isInputNumberValid(campos[i].value)) {
           hayCamposErroneos = true
@@ -113,17 +104,16 @@ document.addEventListener('DOMContentLoaded', function () {
       datosFormulario.numdocumentocod = data.get('numDocumentoCod')
       datosFormulario.sexoCod= data.get('sexoCod')
       datosFormulario.emailCod = data.get('emailCod')
-  
       datosFormulario.celularCod = data.get('celularCod')
       datosFormulario.ocupacionCod = data.get('ocupacionCod')
 
       datosFormulario.primerNombreCodReplegal=data.get('primerNombreCodReplegal')
       datosFormulario.segundoNombreCodRepLegal=data.get('segundoNombreCodRepLegal')
-      datosFormulario.primerApellidoCodRepLegal=data.get('primerApellidoCodRepLegall')
+      datosFormulario.primerApellidoCodRepLegal=data.get('primerApellidoCodRepLegal')
       datosFormulario.segundoApellidoCodRepLegal=data.get('segundoApellidoCodRepLegal')
       datosFormulario.documentoCodRepLegal=data.get('documentoCodRepLegal')
       datosFormulario.numDocumentoCodRepLegal=data.get('numDocumentoCodRepLegal')
-      datosFormulario.razonsocial=data.get(' razonsocial')
+      datosFormulario.razonsocial=data.get('razonsocial')
       datosFormulario.nit=data.get('nit')
       datosFormulario.direccion=data.get('direccion')
       datosFormulario.ciudEmpresa=data.get('ciudEmpresa')
@@ -150,7 +140,14 @@ document.addEventListener('DOMContentLoaded', function () {
       const modalSegundoNombreRepLegal = document.getElementById('segundoNombreCodReplegalVali')
       const modalPrimerApellidoRepLegal = document.getElementById('primerApellidoCodReplegalVali')
       const modalSegundoApellidoRepLegal= document.getElementById('segundoApellidoCodReplegalVali')
-      
+      const modalRazonSocail= document.getElementById('razonSocialVali')
+      const modalnit= document.getElementById('nitVali')
+      const modaldireccion= document.getElementById('direccionVali')
+      const modalciudEmpresa=document.getElementById('ciudEmpresaVali')
+      const modaltelEmpresa=document.getElementById('telEmpresaVali')
+      const modalemailCodJuridico=document.getElementById('emailCodJuridicoVali')
+      const modalingresos=document.getElementById('ingresosVali')
+      const modalegresos=document.getElementById('egresosVali')
 
       modalPrimerNombre.value = datosFormulario.primerNombreCod
       modalSegundoNombre.value = datosFormulario.segundoNombreCod
@@ -166,6 +163,15 @@ document.addEventListener('DOMContentLoaded', function () {
       modalSegundoNombreRepLegal.value= datosFormulario.segundoNombreCodRepLegal
       modalPrimerApellidoRepLegal.value= datosFormulario.primerApellidoCodRepLegal
       modalSegundoApellidoRepLegal.value= datosFormulario.segundoApellidoCodRepLegal
+      modalRazonSocail.value=datosFormulario.razonsocial
+      modalnit.value=datosFormulario.nit
+      modaldireccion.value=datosFormulario.direccion
+      modalciudEmpresa.value= datosFormulario.ciudEmpresa
+      modaltelEmpresa.value=datosFormulario.telEmpresa
+      modalemailCodJuridico.value=datosFormulario.emailCodJuridico
+      modalingresos.value=datosFormulario.ingresos
+      modalegresos.value=datosFormulario.egresos
+
       
     }
   })
