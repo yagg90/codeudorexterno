@@ -188,7 +188,7 @@ function mostrarCamposNombresApellidos() {
 function cargarDocumentosIdependiente() {
   document.getElementById('container-documentoident').style.display = 'block';
   document.getElementById('container-declrenta').style.display = 'block';
-  document.getElementById('container-extractosbanca').style.display = 'block';
+  document.getElementById('container-extractosbanca').style.display = 'grid';
 
   document.getElementById('container-certlaboral').style.display = 'none';
   document.getElementById('container-certinmueble').style.display = 'none';
@@ -200,7 +200,7 @@ function cargarDocumentosIdependiente() {
 
 function cargarDocumentosEmpleado() {
   document.getElementById('container-documentoident').style.display = 'block';
-  document.getElementById('container-extractosbanca').style.display = 'block';
+  document.getElementById('container-extractosbanca').style.display = 'grid';
   document.getElementById('container-certlaboral').style.display = 'block';
 
   document.getElementById('container-declrenta').style.display = 'none';
@@ -213,7 +213,7 @@ function cargarDocumentosEmpleado() {
 function cargarDocumentosRentistacapital() {
   document.getElementById('container-documentoident').style.display = 'block';
   document.getElementById('container-declrenta').style.display = 'block';
-  document.getElementById('container-extractosbanca').style.display = 'block';
+  document.getElementById('container-extractosbanca').style.display = 'grid';
   document.getElementById('container-certinmueble').style.display = 'block';
 
   document.getElementById('container-certlaboral').style.display = 'none';
@@ -226,7 +226,7 @@ function cargarDocumentosjuridico() {
   document.getElementById('container-camaracomercio').style.display = 'block';
   document.getElementById('container-estafinancieros').style.display = 'block';
   document.getElementById('container-declrenta').style.display = 'block';
-  document.getElementById('container-extractosbanca').style.display = 'block';
+  document.getElementById('container-extractosbanca').style.display = 'grid';
 
   document.getElementById('container-documentoident').style.display = 'none';
   document.getElementById('container-certlaboral').style.display = 'none';

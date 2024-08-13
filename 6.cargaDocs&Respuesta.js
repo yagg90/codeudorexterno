@@ -21,14 +21,14 @@ const CODIGOS_TABLA_EXCEL = {
 }
 
 const CODIGOS_SEGUN_TIPO_DOCUMENTO = {
-  docidentidad: "1DocumentoIdentidad",
-  cerlaboral: "3CertificadoLaboral",
-  decrenta: "5DeclaracionRenta",
-  exbancarios: "2ExtractoBancario",
-  certinmueble: "6CertificadoLibertadTradicion",
-  camaracomercio: "9CamaraComercio",
-  estadosfinancieros: "11EstadosFinancieros",
-  cedureprelegal: "10CedulaRepresentante",
+  docIdentidad: "1DocumentoIdentidad",
+  cerLaboral: "3CertificadoLaboral",
+  decRenta: "5DeclaracionRenta",
+  exBancarios: "2ExtractoBancario",
+  certInmueble: "6CertificadoLibertadTradicion",
+  camaraComercio: "9CamaraComercio",
+  estadosFinancieros: "11EstadosFinancieros",
+  ceduRepreLegal: "10CedulaRepresentante",
   otros: "13Otros"
 }
 
@@ -212,7 +212,9 @@ async function checkDocuments() {
       // cargarDocumentosEmpleado();      
       inputsToCheck.push({ input: document.getElementById('docidentidad') })
       inputsToCheck.push({ input: document.getElementById('cerlaboral') })
-      inputsToCheck.push({ input: document.getElementById('exbancarios') })
+      inputsToCheck.push({ input: document.getElementById('exbancarios1') })
+      inputsToCheck.push({ input: document.getElementById('exbancarios2') })
+      inputsToCheck.push({ input: document.getElementById('exbancarios3') })
       inputsToCheck.push({ input: document.getElementById('otros') })
       break;
 
@@ -220,14 +222,18 @@ async function checkDocuments() {
       // cargarDocumentosIdependiente();
       inputsToCheck.push({ input: document.getElementById('docidentidad') })
       inputsToCheck.push({ input: document.getElementById('decrenta') })
-      inputsToCheck.push({ input: document.getElementById('exbancarios') })
+      inputsToCheck.push({ input: document.getElementById('exbancarios1') })
+      inputsToCheck.push({ input: document.getElementById('exbancarios2') })
+      inputsToCheck.push({ input: document.getElementById('exbancarios3') })
       inputsToCheck.push({ input: document.getElementById('otros') })
       break;
     default:
       // cargarDocumentosRentistacapital();
       inputsToCheck.push({ input: document.getElementById('docidentidad') })
       inputsToCheck.push({ input: document.getElementById('decrenta') })
-      inputsToCheck.push({ input: document.getElementById('exbancarios') })
+      inputsToCheck.push({ input: document.getElementById('exbancarios1') })
+      inputsToCheck.push({ input: document.getElementById('exbancarios2') })
+      inputsToCheck.push({ input: document.getElementById('exbancarios3') })
       inputsToCheck.push({ input: document.getElementById('certinmueble') })
       inputsToCheck.push({ input: document.getElementById('otros') })
   }
@@ -249,7 +255,7 @@ async function checkDocuments() {
       element.nextElementSibling.textContent = ''
       inputsToCheck[i].file = element.files[0]
       // filesFromInputs.push(element.files[0])
-    } else if (element.name !== "otros" && element.files.length === 0) {
+    } else if (element.dataset.required === "true" && element.files.length === 0) {
       inputErrorMessageEl.textContent = 'Selecciona un archivo.'
       return
     }

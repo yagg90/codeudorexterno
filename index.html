@@ -410,63 +410,92 @@
       <button id="confirmModalBtn">Confirmar</button>
     </div>
   </div>
-  <!-- Paso 2 del formulario (agregado) -->
+
+
+  <!-- Paso 2 del formulario (Documentos) -->
   <div id="paso2" class="form-step" style="display: none;">
     <!-- Contenido del paso 2 -->
     <h2>Documentos </h2>
 
+    <div class="carga-docs__info">
+
+      <p class="modal-content__message">Por favor ten en cuenta:</p>
+      <ul class="modal-content__message-small">
+        <li>Envía tus documentos en formato PDF.</li>
+        <li>Verifica que tus documentos no estén protegidos con clave o contraseña, de lo contrario no podremos usarlos
+          para tu radicación.</li>
+      </ul>
+    </div>
+
     <div class="form-step__child">
       <div class="input-wrapper" id="container-documentoident">
-        <label for="text">Documento identidad </label>
-        <input type="file" name="docidentidad" id="docidentidad" accept=".pdf">
+        <label for="text"> <span>*</span> Documento identidad </label>
+        <input type="file" name="docIdentidad" id="docidentidad" accept=".pdf" data-required="true">
         <p id="message1"></p>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
       </div>
       <div class="input-wrapper" id="container-certlaboral">
-        <label for="text">Certificacion laboral </label>
-        <input type="file" name="cerlaboral" id="cerlaboral" accept=".pdf">
+        <label for="text"> <span>*</span> Certificación laboral </label>
+        <input type="file" name="cerLaboral" id="cerlaboral" accept=".pdf" data-required="true">
         <p id="message2"></p>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
       </div>
-      <!-- </div> -->
-      <!-- <div class="form-step__child"> -->
       <div class="input-wrapper" id="container-declrenta">
-        <label for="text">Declaracion de renta</label>
-        <input type="file" name="decrenta" id="decrenta" accept=".pdf">
+        <label for="text"> <span>*</span> Declaración de renta</label>
+        <input type="file" name="decRenta" id="decrenta" accept=".pdf" data-required="true">
         <p id="message3"></p>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
       </div>
-      <div class="input-wrapper" id="container-extractosbanca">
-        <label for="text">Extractos bancarios </label>
-        <input type="file" name="exbancarios" id="exbancarios" accept=".pdf">
-        <p id="message4"></p>
+    </div>
+
+    <div class="form-step__child" id="container-extractosbanca">
+      <div class="input-wrapper">
+        <label for="text"> <span>*</span> Extracto bancario 1</label>
+        <input type="file" name="exBancarios" id="exbancarios1" accept=".pdf" data-required="true" />
+        <p id="message4-1"></p>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
       </div>
+      <div class="input-wrapper">
+        <label for="text">Extracto bancario 2</label>
+        <input type="file" name="exBancarios" id="exbancarios2" accept=".pdf" />
+        <p id="message4-2"></p>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
+      </div>
+      <div class="input-wrapper">
+        <label for="text">Extracto bancario 3</label>
+        <input type="file" name="exBancarios" id="exbancarios3" accept=".pdf" />
+        <p id="message4-3"></p>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
+      </div>
+    </div>
+
+    <div class="form-step__child">
       <div class="input-wrapper" id="container-certinmueble">
-        <label for="text">Certificado de inmuebles </label>
-        <input type="file" name="certinmueble" id="certinmueble" accept=".pdf">
+        <label for="text"> <span>*</span> Certificado de inmuebles </label>
+        <input type="file" name="certInmueble" id="certinmueble" accept=".pdf" data-required="true" />
         <p id="message5"></p>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
       </div>
       <div class="input-wrapper" id="container-camaracomercio">
-        <label for="text">Certificado camara y comercio </label>
-        <input type="file" name="camaracomercio" id="camaracomercio" accept=".pdf">
+        <label for="text"> <span>*</span> Certificado cámara y comercio </label>
+        <input type="file" name="camaraComercio" id="camaracomercio" accept=".pdf" data-required="true" />
         <p id="message6"></p>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
       </div>
       <div class="input-wrapper" id="container-estafinancieros">
-        <label for="text">Estados financieros </label>
-        <input type="file" name="estadosfinancieros" id="estadosfinancieros" accept=".pdf">
+        <label for="text"> <span>*</span> Estados financieros </label>
+        <input type="file" name="estadosFinancieros" id="estadosfinancieros" accept=".pdf" data-required="true" />
         <p id="message7"></p>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
       </div>
       <div class="input-wrapper" id="container-cedureprelegal">
-        <label for="text">Cédula Representante Legal </label>
-        <input type="file" name="cedureprelegal" id="cedureprelegal" accept=".pdf">
+        <label for="text"> <span>*</span> Cédula Representante Legal </label>
+        <input type="file" name="ceduRepreLegal" id="cedureprelegal" accept=".pdf" data-required="true" />
         <p id="message8"></p>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
       </div>
     </div>
+
     <div class="form-step__child">
       <div class="input-wrapper">
         <label for="text">Otros</label>
@@ -476,12 +505,7 @@
       </div>
     </div>
 
-    <p class="modal-content__message">Por favor ten en cuenta:</p>
-    <ul class="modal-content__message-small">
-      <li>Envía tus documentos en formato PDF.</li>
-      <li>Verifica que tus documentos no estén protegidos con clave o contraseña, de lo contrario no podremos usarlos
-        para tu radicación.</li>
-    </ul>
+
 
     <p class="personal-data-form__error-message" id="cargaDocumentosErrorMsg" style="display: none;"></p>
 

@@ -40,8 +40,14 @@ document.getElementById('decrenta').addEventListener('change', function (e) {
   checkForPasswordInPDF(e.target, "message3")
 });
 
-document.getElementById('exbancarios').addEventListener('change', function (e) {
-  checkForPasswordInPDF(e.target, "message4")
+document.getElementById('exbancarios1').addEventListener('change', function (e) {
+  checkForPasswordInPDF(e.target, "message4-1")
+});
+document.getElementById('exbancarios2').addEventListener('change', function (e) {
+  checkForPasswordInPDF(e.target, "message4-2")
+});
+document.getElementById('exbancarios3').addEventListener('change', function (e) {
+  checkForPasswordInPDF(e.target, "message4-3")
 });
 
 document.getElementById('certinmueble').addEventListener('change', function (e) {
